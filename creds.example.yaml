@@ -1,0 +1,11 @@
+twitter:
+        client:
+                key:
+                secret:
+        access:
+                key:
+                secret:
+
+expander:
+        bitly:
+        googl:

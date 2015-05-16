@@ -1,0 +1,33 @@
+div#content {
+    display: inline-block;
+}
+
+body {
+    text-align: center;
+}
+
+table.domains th {
+    text-align: center;
+}
+
+tr.blank-row td {
+    background-color: white !important;
+    text-align: center;
+}
+
+th.domain-name {
+    min-width: 15em;
+}
+
+div.table-container {
+    display: table;
+}
+
+button.control {
+    margin: 1em;
+}
+
+button.control i {
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+}

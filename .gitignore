@@ -1,0 +1,9 @@
+*.swp
+*.swo
+~*
+.#*
+
+/out/
+/res/res_gen.go
+/res/data/react/
+/.dir-locals.el

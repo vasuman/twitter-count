@@ -1,0 +1,51 @@
+a.userLink {
+    text-decoration: none;
+    margin-right: 3em;
+    color: grey;
+}
+
+div.tweet-list {
+    margin-top: 20px;
+    box-shadow: 0 0 15px 5px grey;
+    min-width: 400px;
+    border-radius: 7px;
+}
+
+div.list-start {
+    text-align: center;
+}
+
+i.twitter-icon {
+    color: lightblue;
+    margin-right: 0.5em; 
+}
+
+span.domain-name {
+    font-size: 120%;
+    margin-left: 0.5em;
+}
+
+div.list-start h1 {
+    font-weight: normal;    
+}
+
+div.tweet-card {
+    padding: 15px;
+    border-bottom: 1px solid black;
+}
+
+div.tweet-card:last-child {
+    border-bottom: none;
+}
+
+div.list-end {
+    text-align: center;
+    cursor: pointer;
+}
+
+div#content {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+

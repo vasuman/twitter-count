@@ -1,0 +1,27 @@
+{{ define "domain" }}
+<html>
+  <head>
+    <title> Tweets for {{ . }} </title>
+    <link rel="stylesheet" href="/styles/domain.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="/scripts/utils.js"></script>
+    <script src="https://fb.me/react-0.13.3.min.js"></script>
+    <script src="/scripts/react/tweetList.js"></script>
+    <script>
+     function init() {
+         React.render(
+             React.createElement(TweetList, {
+                 domainName: "{{ . }}",
+                 batchSize: 20
+             }),
+             document.getElementById('content')
+         );
+     }
+     window.addEventListener('load', init);
+    </script>
+  </head>
+  <body>
+    <div id="content"></div>
+  </body>
+</html>
+{{ end }}
