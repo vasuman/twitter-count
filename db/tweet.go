@@ -4,6 +4,10 @@ import "fmt"
 
 func Associate(dom string, id int64, handle string) error {
 	_, err := stmtInsertTweet.Exec(dom, id, handle)
+	if err != nil {
+		return err
+	}
+	_, err = stmtUpdateCount.Exec(dom)
 	return err
 }
 
