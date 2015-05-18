@@ -3,11 +3,16 @@ package db
 import "fmt"
 
 func Associate(dom string, id int64, handle string) error {
-	_, err := stmtInsertTweet.Exec(dom, id, handle)
+	tx, err := db.Begin()
 	if err != nil {
 		return err
 	}
-	_, err = stmtUpdateCount.Exec(dom)
+	_, err = tx.Stmt(stmtInsertTweet).Exec(dom, id, handle)
+	_, err = tx.Stmt(stmtUpdateCount).Exec(dom)
+	if err != nil {
+		return err
+	}
+	err = tx.Commit()
 	return err
 }
 
