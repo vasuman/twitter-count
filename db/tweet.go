@@ -1,15 +1,21 @@
 package db
 
-import "fmt"
+import (
+	"database/sql"
+	"fmt"
+)
 
 func Associate(dom string, id int64, handle string) error {
 	tx, err := db.Begin()
-	if err != nil {
-		return err
+	execStmt := func(stmt *sql.Stmt, args ...interface{}) {
+		if err == nil {
+			_, err = tx.Stmt(stmt).Exec(args...)
+		}
 	}
-	_, err = tx.Stmt(stmtInsertTweet).Exec(dom, id, handle)
-	_, err = tx.Stmt(stmtUpdateCount).Exec(dom)
+	execStmt(stmtInsertTweet, dom, id, handle)
+	execStmt(stmtUpdateCount, dom)
 	if err != nil {
+		tx.Rollback()
 		return err
 	}
 	err = tx.Commit()

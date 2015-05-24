@@ -33,7 +33,6 @@ var TweetList = React.createClass({
                 num: this.props.batchSize
             }
         function success(data) {
-            console.log(data);
             var newTweets = self.state.tweets.concat(data)
                 self.setState({
                     loading: false,
@@ -50,7 +49,6 @@ var TweetList = React.createClass({
     
     render: function() {
         var nodes = this.state.tweets.map(function(tweet) {
-            console.log(tweet);
             return (
                 <TweetCard key={ tweet.id  } tweet={ tweet }/>
             );

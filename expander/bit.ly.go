@@ -17,19 +17,18 @@ func bitly(token string) *jsonAPI {
 		return v
 	}
 	e.decode = func(dec *json.Decoder) (string, error) {
-		type response struct {
+		var r struct {
 			Data struct {
 				Expand []struct {
 					Long string `json:"long_url"`
 				} `json:"expand"`
 			} `json:"data"`
 		}
-		resp := new(response)
-		err := dec.Decode(resp)
+		err := dec.Decode(&r)
 		if err != nil {
 			return "", err
 		}
-		long := resp.Data.Expand[0].Long
+		long := r.Data.Expand[0].Long
 		if long == "" {
 			return "", errors.New("got empty response")
 		}

@@ -17,12 +17,11 @@ func googl(key string) *jsonAPI {
 		return v
 	}
 	e.decode = func(dec *json.Decoder) (string, error) {
-		type response struct {
+		var r struct {
 			Long   string `json:"longUrl"`
 			Status string `json:"status"`
 		}
-		r := new(response)
-		err := dec.Decode(r)
+		err := dec.Decode(&r)
 		if err != nil {
 			return "", err
 		}
